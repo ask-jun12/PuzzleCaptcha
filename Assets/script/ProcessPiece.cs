@@ -10,25 +10,19 @@ using UnityEngine.UI;
 // ピースに関する処理
 public class ProcessPiece : MonoBehaviour
 {
-    GameObject setrandom;
     GameObject pieces;
     SetRandom SRscr;
     SetPosition SPscr;
-    public int PieceNo; // 各ピースのナンバー
-    public int SelectNo; // ランダムに選択されたナンバー
-    public float[] piecePosX = new float[48];
-    public float[] piecePosY = new float[48];
-    public Vector3 firstPos; // 可動ピースの初期位置
-    private float span; // ピースがワープする距離
+    private int PieceNo; // 各ピースのナンバー
+    private int SelectNo; // ランダムに選択されたナンバー(SRscr)
+    public float[] piecePosX = new float[48]; // (SPscr)
+    public float[] piecePosY = new float[48]; // (SPscr)
+    private Vector3 firstPos; // 可動ピースの初期位置(SPscr)
+    private float span; // ピースがワープする距離(SPscr)
 
     // シーン初め
     void Start()
     {
-        // SetRandomScr.csから変数SelectNoを取得
-        this.setrandom = GameObject.Find ("SetRandom");
-        this.SRscr = setrandom.GetComponent<SetRandom>();
-        this.SelectNo = SRscr.SelectNo;
-
         // SetPosition.csから配列piecePosX・Yを取得
         // Vector3型firstPos・変数spanを取得
         this.pieces = GameObject.Find ("Pieces");
@@ -37,6 +31,10 @@ public class ProcessPiece : MonoBehaviour
         this.piecePosY = SPscr.piecePosY;
         this.firstPos = SPscr.firstPos;
         this.span = SPscr.span;
+
+        // SetRandomScr.csから変数SelectNoを取得
+        this.SRscr = pieces.GetComponent<SetRandom>();
+        this.SelectNo = SRscr.SelectNo;
 
         // pieceのNo.を取得
         string num = Regex.Replace (transform.name, @"[^0-9]", "");
@@ -53,9 +51,12 @@ public class ProcessPiece : MonoBehaviour
         }
     }
 
+    public bool isDrag = false; // ドラッグ中かどうか
+
     // ドラッグ処理
     public void OnMouseDrag()
     {
+        this.isDrag = true;
         // ランダムに選択されたナンバーのピースのみ可動
         if (this.PieceNo == this.SelectNo)
         {
@@ -69,6 +70,7 @@ public class ProcessPiece : MonoBehaviour
     // ドロップ処理
     public void OnMouseUp() // +async
     {
+        this.isDrag = false;
         // ドロップ時のピースのｘｙ座標を取得
         float objx = this.transform.position.x;//
         float objy = this.transform.position.y;//
@@ -88,7 +90,7 @@ public class ProcessPiece : MonoBehaviour
                 this.transform.position = new Vector3(this.piecePosX[this.SelectNo], this.piecePosY[this.SelectNo], 0);//
                 Debug.LogError("success");
                 // await DelayMethod(); // 遅延
-                // SceneManager.LoadScene("GameScene"); // 次のパズルへ
+                SceneManager.LoadScene("GameScene"); // 次のパズルへ
                 Application.Quit();
             }
         }
@@ -96,7 +98,7 @@ public class ProcessPiece : MonoBehaviour
         {
             Debug.LogWarning("miss");
             // await DelayMethod(); // 遅延
-            // SceneManager.LoadScene("GameScene"); // 次のパズルへ
+            SceneManager.LoadScene("GameScene"); // 次のパズルへ
             Application.Quit();
         }
     }
