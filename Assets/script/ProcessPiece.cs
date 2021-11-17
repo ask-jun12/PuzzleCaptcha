@@ -17,7 +17,7 @@ public class ProcessPiece : MonoBehaviour
     private int SelectNo; // ランダムに選択されたナンバー(SRscr)
     public float[] piecePosX = new float[48]; // (SPscr)
     public float[] piecePosY = new float[48]; // (SPscr)
-    private Vector3 firstPos; // 可動ピースの初期位置(SPscr)
+    private Vector3 startPos; // 可動ピースの初期位置(SPscr)
     private float span; // ピースがワープする距離(SPscr)
 
     // シーン初め
@@ -29,7 +29,7 @@ public class ProcessPiece : MonoBehaviour
         this.SPscr = pieces.GetComponent<SetPosition>();
         this.piecePosX = SPscr.piecePosX;
         this.piecePosY = SPscr.piecePosY;
-        this.firstPos = SPscr.firstPos;
+        this.startPos = SPscr.startPos;
         this.span = SPscr.span;
 
         // SetRandomScr.csから変数SelectNoを取得
@@ -43,7 +43,7 @@ public class ProcessPiece : MonoBehaviour
         // パズルのピースを設置
         if (this.PieceNo == this.SelectNo)
         {
-            this.transform.position = firstPos;//
+            this.transform.position = this.startPos;//
         }
         else
         {

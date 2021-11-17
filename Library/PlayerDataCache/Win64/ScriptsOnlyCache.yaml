@@ -6,7 +6,7 @@ ScriptsOnlyBuild:
     - ProcessPiece
     - SetPosition
     - SetRandom
-    - WritePosition
+    - WriteCsv
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -15,6 +15,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -25,12 +27,6 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEngine.UI.dll:
-    - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/GameScene.unity:
     - Class: 1
@@ -52,28 +48,16 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1896}
     - Class: 114
-      Script: {instanceID: 2706}
-    - Class: 114
       Script: {instanceID: 2852}
-    - Class: 114
-      Script: {instanceID: 2954}
     - Class: 114
       Script: {instanceID: 4228}
     - Class: 114
       Script: {instanceID: 5550}
     - Class: 114
-      Script: {instanceID: 5924}
-    - Class: 114
-      Script: {instanceID: 6274}
-    - Class: 114
-      Script: {instanceID: 6848}
-    - Class: 114
       Script: {instanceID: 7862}
     - Class: 114
       Script: {instanceID: 7924}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -82,12 +66,6 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -266,7 +244,7 @@ ScriptsOnlyBuild:
     className: RuleOverrideTile
   - hash:
       serializedVersion: 2
-      Hash: 36a68a5635f72e0b9a16c72b2dbe005e
+      Hash: 33e255aa1ae8621d7a3f29ff9b0a9d7a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SetPosition
@@ -476,7 +454,7 @@ ScriptsOnlyBuild:
     className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
-      Hash: e624e403c669c94aa4ecb194e27cfa6b
+      Hash: 45a5cca0c903ed037336c6c2f97bd0e5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SetRandom
@@ -665,7 +643,7 @@ ScriptsOnlyBuild:
       Hash: 61fd55811202efac98c9dd5e9c5aa4cd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: WritePosition
+    className: WriteCsv
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -926,7 +904,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 23a8ef91b2dd5e1fa5cc210431e0fbbe
+      Hash: 80da2dfb5f24d334c986a10828205379
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProcessPiece
@@ -1059,4 +1037,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/jun12/Desktop/development/Unity/PuzzleCaptcha/PuzzleCaptcha.exe
+  playerPath: C:/Users/jun12/Desktop/kenkyu/PuzzleCaptcha/PuzzleCaptcha.exe

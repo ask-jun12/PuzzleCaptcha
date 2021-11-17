@@ -2698,7 +2698,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  firstPos: {x: -4, y: -3.8, z: 0}
+  startPos: {x: -4, y: -3.8, z: 0}
   span: 0.1
 --- !u!114 &647731572
 MonoBehaviour:
@@ -2713,7 +2713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOut: 0.01
-  dis: 1
 --- !u!114 &647731573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2739,7 +2738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectNo: 0
-  fixNo: 36
+  fixNo: 0
 --- !u!1 &689268148
 GameObject:
   m_ObjectHideFlags: 0
