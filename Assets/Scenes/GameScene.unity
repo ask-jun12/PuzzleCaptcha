@@ -2738,7 +2738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectNo: 0
-  fixNo: 0
+  fixNo: 44
 --- !u!1 &689268148
 GameObject:
   m_ObjectHideFlags: 0
