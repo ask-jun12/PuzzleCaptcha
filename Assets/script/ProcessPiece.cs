@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class ProcessPiece : MonoBehaviour
 {
     GameObject pieces;
+    GameObject judgeText;
     SetRandom SRscr;
     SetPosition SPscr;
     private int PieceNo; // 各ピースのナンバー
@@ -31,6 +32,9 @@ public class ProcessPiece : MonoBehaviour
         this.piecePosY = SPscr.piecePosY;
         this.startPos = SPscr.startPos;
         this.span = SPscr.span;
+
+        // JudgeTextオブジェクトの取得
+        this.judgeText = GameObject.Find("JudgeText");
 
         // SetRandomScr.csから変数SelectNoを取得
         this.SRscr = pieces.GetComponent<SetRandom>();
@@ -68,7 +72,7 @@ public class ProcessPiece : MonoBehaviour
     }
 
     // ドロップ処理
-    public void OnMouseUp() // +async
+    public async void OnMouseUp() // +async
     {
         this.isDrag = false;
         // ドロップ時のピースのｘｙ座標を取得
@@ -89,7 +93,9 @@ public class ProcessPiece : MonoBehaviour
                 GetComponent<SpriteRenderer>().sortingOrder = 2; // 最背面へ
                 this.transform.position = new Vector3(this.piecePosX[this.SelectNo], this.piecePosY[this.SelectNo], 0);//
                 Debug.LogError("success");
-                // await DelayMethod(); // 遅延
+                judgeText.GetComponent<Text>().color = new Color(255f / 255f, 0f / 255f, 0f / 255f);
+                judgeText.GetComponent<Text>().text = "success";
+                await DelayMethod(); // 遅延
                 SceneManager.LoadScene("GameScene"); // 次のパズルへ
                 Application.Quit();
             }
@@ -97,7 +103,9 @@ public class ProcessPiece : MonoBehaviour
         else
         {
             Debug.LogWarning("miss");
-            // await DelayMethod(); // 遅延
+            judgeText.GetComponent<Text>().color = new Color(0f / 255f, 0f / 255f, 255f / 255f);
+            judgeText.GetComponent<Text>().text = "fail";
+            await DelayMethod(); // 遅延
             SceneManager.LoadScene("GameScene"); // 次のパズルへ
             Application.Quit();
         }
